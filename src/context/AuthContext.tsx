@@ -17,7 +17,7 @@ interface AuthState {
 interface AuthContextValue extends AuthState {
   isAuthenticated: boolean;
   loading: boolean;
-  login: (email: string, password: string, remember: boolean) => Promise<void>;
+  login: (email: string, password: string, captcha: string, remember: boolean) => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -56,8 +56,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = useCallback(
-    async (email: string, password: string, remember: boolean) => {
-      const result = await adminLogin(email, password);
+    async (email: string, password: string, captcha: string, remember: boolean) => {
+      const result = await adminLogin(email, password, captcha);
       if (!result.token || !result.data) {
         throw new Error('Invalid response from server');
       }

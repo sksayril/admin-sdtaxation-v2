@@ -1,7 +1,18 @@
-import { Users, Briefcase, Calendar, Clock } from 'lucide-react';
+import { Users, Calendar, Clock } from 'lucide-react';
 import { dashboardStats, mockProjects, mockEmployees } from '../data/mockData';
+import { useTheme } from '../context/ThemeContext';
+
+const themeIconClasses = {
+  sky: 'bg-sky-100 dark:bg-sky-900 text-sky-600 dark:text-sky-400',
+  blue: 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400',
+  green: 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400',
+  purple: 'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400',
+  orange: 'bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-400',
+  rose: 'bg-rose-100 dark:bg-rose-900 text-rose-600 dark:text-rose-400',
+};
 
 export default function Dashboard() {
+  const { colorTheme } = useTheme();
   const malePercentage = Math.round((dashboardStats.maleEmployees / dashboardStats.totalEmployees) * 100);
   const femalePercentage = Math.round((dashboardStats.femaleEmployees / dashboardStats.totalEmployees) * 100);
 
@@ -11,43 +22,50 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Welcome Eliza Hart!</h1>
-        <p className="text-gray-600 mt-1">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome Eliza Hart!</h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">
           The salary of Kathryn Webster is pending since 15 December.{' '}
-          <button className="text-sky-600 hover:text-sky-700 font-medium">Learn More</button>
+          <button className={`font-medium ${
+            colorTheme === 'sky' ? 'text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300' :
+            colorTheme === 'blue' ? 'text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300' :
+            colorTheme === 'green' ? 'text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300' :
+            colorTheme === 'purple' ? 'text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300' :
+            colorTheme === 'orange' ? 'text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300' :
+            'text-rose-600 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300'
+          }`}>Learn More</button>
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700 hover:shadow-md transition">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600 mb-1">Attendance</p>
-              <p className="text-3xl font-bold text-gray-900">{dashboardStats.attendance}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Attendance</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white">{dashboardStats.attendance}</p>
             </div>
-            <div className="bg-sky-100 p-3 rounded-lg">
-              <Users className="w-6 h-6 text-sky-600" />
+            <div className={`${themeIconClasses[colorTheme]} p-3 rounded-lg`}>
+              <Users className="w-6 h-6" />
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700 hover:shadow-md transition">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600 mb-1">Late</p>
-              <p className="text-3xl font-bold text-gray-900">{dashboardStats.lateArrivals}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Late</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white">{dashboardStats.lateArrivals}</p>
             </div>
-            <div className="bg-amber-100 p-3 rounded-lg">
-              <Clock className="w-6 h-6 text-amber-600" />
+            <div className="bg-amber-100 dark:bg-amber-900 p-3 rounded-lg">
+              <Clock className="w-6 h-6 text-amber-600 dark:text-amber-400" />
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700 hover:shadow-md transition">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600 mb-1">Absent</p>
-              <p className="text-3xl font-bold text-gray-900">{dashboardStats.absent}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Absent</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white">{dashboardStats.absent}</p>
             </div>
             <div className="bg-red-100 p-3 rounded-lg">
               <Calendar className="w-6 h-6 text-red-600" />
@@ -58,7 +76,7 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-gray-900">Total Employees</h2>
               <span className="text-2xl font-bold text-gray-900">{dashboardStats.totalEmployees}</span>
@@ -120,7 +138,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Total Projects</h2>
@@ -185,7 +203,7 @@ export default function Dashboard() {
             </button>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
             <h3 className="font-bold text-gray-900 mb-4">Employees on Holiday</h3>
             <div className="space-y-4">
               {onVacationEmployees.map((emp) => (

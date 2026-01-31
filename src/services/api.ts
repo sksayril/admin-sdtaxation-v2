@@ -33,13 +33,13 @@ export interface ApiError {
   errors?: string[];
 }
 
-export async function adminLogin(email: string, password: string): Promise<LoginResponse> {
+export async function adminLogin(email: string, password: string, captcha: string): Promise<LoginResponse> {
   const response = await fetch(`${API_BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password, captcha }),
   });
 
   const data = (await response.json()) as LoginResponse | ApiError;
