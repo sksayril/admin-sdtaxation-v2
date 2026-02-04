@@ -207,13 +207,13 @@ export default function Settings() {
                             : 'hover:bg-gray-50 dark:hover:bg-gray-700/50'
                         }`}
                       >
-                        <input
-                          type="radio"
-                          name="theme"
+                      <input
+                        type="radio"
+                        name="theme"
                           checked={isSelected}
                           onChange={() => setThemeMode(themeValue)}
-                          className="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                        />
+                        className="w-4 h-4 text-sky-500 focus:ring-sky-500"
+                      />
                         <span className="text-gray-700 dark:text-gray-300">{theme}</span>
                       </label>
                     );
@@ -224,7 +224,7 @@ export default function Settings() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                   Color Theme
-                </label>
+                    </label>
                 <div className="grid grid-cols-3 gap-3">
                   {colorOptions.map((option) => {
                     const isSelected = colorTheme === option.value;

@@ -8,9 +8,9 @@ import { ThemeProvider } from './context/ThemeContext.tsx';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
     </ThemeProvider>
   </StrictMode>
 );
