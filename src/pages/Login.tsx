@@ -132,7 +132,7 @@ export default function Login() {
       <div className="bg-black text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-sm">
           <div>All - in -One Software CRM, ERP, HR, PAYROLL</div>
-          <div>Technical Support : 9993556791 sdtaxation@gmail.com</div>
+          <div>Technical Support : 9993556791  sdtaxtion@gmail.com</div>
         </div>
       </div>
 
@@ -328,10 +328,10 @@ export default function Login() {
               <div className="marquee-container">
                 <div className="marquee-content">
                   <span className="inline-block whitespace-nowrap">
-                    Technical Support: 9993556791 | Email: sdtaxation@gmail.com | All-in-One Software CRM, ERP, HR, PAYROLL
+                    Technical Support: 9993556791 | Email:  sdtaxtion@gmail.com | All-in-One Software CRM, ERP, HR, PAYROLL
                   </span>
                   <span className="inline-block whitespace-nowrap ml-8">
-                    Technical Support: 9993556791 | Email: sdtaxation@gmail.com | All-in-One Software CRM, ERP, HR, PAYROLL
+                    Technical Support: 9993556791 | Email:  sdtaxtion@gmail.com | All-in-One Software CRM, ERP, HR, PAYROLL
                   </span>
                 </div>
               </div>
